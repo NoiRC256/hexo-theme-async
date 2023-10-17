@@ -1,0 +1,26 @@
+<% if (get_langs().length > 1) { %>
+	<div class="lang-switcher">
+			<button class="lang-btn" onclick="toggleDropdown()"><%= page.lang %> <span class="caret">&#9660;</span></button>
+			<ul class="lang-dropdown">
+					<% for (let lang of get_langs()) { %>
+					<li><a href="<%= switch_lang(lang) %>"><%= lang %></a></li>
+					<% } %>
+			</ul>
+	</div>
+	<% } %>
+	
+	
+	<script>
+			function toggleDropdown() {
+					const dropdown = document.querySelector(".lang-dropdown");
+					if (dropdown.style.display === "block") {
+							dropdown.style.display = "none";
+							dropdown.style.opacity = "0";
+							dropdown.style.maxHeight = "0";
+					} else {
+							dropdown.style.display = "block";
+							dropdown.style.opacity = "1";
+							dropdown.style.maxHeight = "300px"; // adjust based on your expected max height
+					}
+			}
+	</script>

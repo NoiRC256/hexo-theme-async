@@ -8,15 +8,19 @@ subtitle: ''
 description: 这是一个 Hexo 主题
 keywords:
 author: 白云苍狗
-language: zh-Hans
+language: [zh, en]
 timezone: ''
+i18n:
+  type: [page, post]
+  generator: [archive, category, tag, index]
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://hexo-theme-async.imalun.com
 root: /demosite/
-permalink: :year/:month/:day/:title/
+permalink: :lang/:year/:month/:day/:title/
 permalink_defaults:
+	lang: zh
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
@@ -32,7 +36,7 @@ i18n_dir: :lang
 skip_render:
 
 # Writing
-new_post_name: :title.md # File name of new posts
+new_post_name: :lang/:title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link:

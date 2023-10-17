@@ -359,6 +359,7 @@ layout:
   header_menu: _widget/header-menu
   header_theme: _widget/header-theme
   header_search: _widget/header-search
+	header_lang_switcher: _widget/header-lang-switcher
   categorie: _widget/categorie
   paginator: _widget/paginator
   fixed_btn: _widget/fixed-btn
