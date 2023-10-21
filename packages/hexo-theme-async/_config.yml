@@ -22,7 +22,7 @@ favicon:
   visibilitychange: false
   hidden: /failure.ico # Displays an icon when not visible
   showText: favicon.showText
-  hideText: favicon.hideText
+  hideText: favicon.hideText]
 
 # Theme resource files or plug-ins
 assets:
@@ -87,6 +87,8 @@ icons:
   double_arrows: fas fa-angle-double-down
   # Code copy icon
   copy: fas fa-copy
+	lang: /img/language.svg
+
 
 # Top navigation menu
 top_bars:
@@ -336,6 +338,11 @@ highlight:
   lang: true # show the code language
   code_word_wrap: fasle #
   height_limit: false # unit: px
+
+# Multi-lingual configuration
+languageNames:
+	zh: 简体中文
+	en: English
 
 # Customize the template path
 layout:

@@ -1,7 +1,7 @@
 <!-- categories -->
 <% if(theme.categorie_card.enable) { %>
-    <div class="row hidden-sm">
-        <% 
+<div class="row hidden-sm">
+    <% 
             let cards = [] 
             let categories = site.categories.toArray()
             if (Array.isArray(theme.categorie_card.list)) {
@@ -13,28 +13,28 @@
                 cards = categories.sort((a,b)=>b.length-a.length).slice(0,theme.categorie_card.len)
             }
         %>
-        <% cards.forEach((item,index) => {  %>
-        <div class="col-lg-6">
-            <%- partial(theme.layout.categorie, { name:item.name,length:item.length,path:item.path }) %>
-        </div>
-        <% }) %>
+    <% cards.forEach((item,index) => {  %>
+    <div class="col-lg-6">
+        <%- partial(theme.layout.categorie, { name:item.name,length:item.length,path:item.path }) %>
     </div>
+    <% }) %>
+</div>
 <% } %>
 <!-- categories end -->
 
 <!-- newest publications -->
 <div class="row">
     <% if(theme.categorie_card.enable) { %>
-        <div class="col-lg-12">
-            <!-- title -->
-            <h5 class="trm-title-with-divider">
-                <%-__('title.new_publish')%> 
-                <span data-number="01"></span>
-            </h5>
-        </div>
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            <%-__('title.new_publish')%>
+            <span data-number="01"></span>
+        </h5>
+    </div>
     <% } %>
-    <% page.posts.each(function(post,postIndex){ %>
-        <%- partial(theme.layout.post_card,{ post, postIndex}) %>
+    <% page.posts.find({lang: page.lang}).each(function(post,postIndex){ %>
+    <%- partial(theme.layout.post_card,{ post, postIndex}) %>
     <% }) %>
 </div>
 <!-- newest publications end -->

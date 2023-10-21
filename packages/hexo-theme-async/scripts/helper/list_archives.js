@@ -6,7 +6,7 @@ function listArchivesHelper(options = {}) {
 	const { config } = this;
 	const archiveDir = config.archive_dir;
 	const { timezone } = config;
-	const lang = 'ZH-cn';
+	const lang = options.lang;
 	let { format } = options;
 	const type = options.type || 'monthly';
 	const { style = 'list', transform, separator = ', ' } = options;
@@ -23,7 +23,7 @@ function listArchivesHelper(options = {}) {
 		format = type === 'monthly' ? 'MMMM YYYY' : 'YYYY';
 	}
 
-	const posts = this.site.posts.sort('date', order);
+	const posts = this.site.posts.find({ lang: lang }).sort('date', order);
 	if (!posts.length) return result;
 
 	const data = [];
@@ -54,7 +54,8 @@ function listArchivesHelper(options = {}) {
 	});
 
 	const link = item => {
-		let url = `${archiveDir}/${item.year}/`;
+		const langDir = lang === config.language[0] ? '/' : `${lang}/`;
+		let url = `${langDir}${archiveDir}/${item.year}/`;
 
 		if (type === 'monthly') {
 			if (item.month < 10) url += '0';

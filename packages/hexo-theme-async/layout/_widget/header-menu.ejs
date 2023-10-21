@@ -3,15 +3,15 @@
     <nav>
         <ul>
             <% theme.top_bars.forEach(element=> { %>
-            <li class="menu-item-has-children <%= url_for(element.url) + 'index.html' === url_for(path) ?'current-menu-item':'' %>">
-                <a <%- element.noswup ? "data-no-swup":"" %> href="<%- url_for(element.url) %>" target="<%- element.target %>">
+            <li class="menu-item-has-children <%= url_for_lang(element.url) + 'index.html' === url_for_lang(path) ?'current-menu-item':'' %>">
+                <a <%- element.noswup ? "data-no-swup":"" %> href="<%- url_for_lang(element.url) %>" target="<%- element.target %>">
                     <%-__(element.title)%>
                 </a>
                 <% if(element.children) { %>
                 <ul>
                     <% element.children.forEach(item=> { %>
                     <li>
-                        <a <%- item.noswup ? "data-no-swup":"" %> href="<%- url_for(item.url) %>" target="<%- item.target %>">
+                        <a <%- item.noswup ? "data-no-swup":"" %> href="<%- url_for_lang(item.url) %>" target="<%- item.target %>">
                             <%-__(item.title)%>
                         </a>
                     </li>
@@ -20,6 +20,7 @@
                 <% } %>
             </li>
             <% }) %>
+            <%- partial(theme.layout.header_lang_switcher) %>
         </ul>
     </nav>
 </div>

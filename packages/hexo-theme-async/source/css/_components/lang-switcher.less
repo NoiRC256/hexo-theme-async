@@ -1,53 +1,25 @@
-.lang-switcher {
-	position: relative;
-	display: inline-block;
-	margin-left: 15px;
-}
-
 .lang-btn {
-	background-color: #333;
-	color: white;
+	background-color: var(--theme-bg1-color);
+	display: flex;
+	align-items: center;
+	padding: 0 12px;
 	border: none;
-	cursor: pointer;
-	padding: 10px 16px;
+	border-radius: 5px;
 	transition: background-color 0.3s;
-	border-radius: 5px;
 }
 
-.lang-btn:hover {
-	background-color: #555;
-}
-
-.caret {
-	margin-left: 5px;
-}
-
-.lang-dropdown {
-	display: none;
-	position: absolute;
-	background-color: #333;
-	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-	z-index: 1;
-	transition:
-		max-height 0.5s,
-		opacity 0.5s;
-	max-height: 0;
-	overflow: hidden;
-	opacity: 0;
-	list-style-type: none;
-	padding-left: 0;
-	border-radius: 5px;
-}
-
-.lang-dropdown a {
-	color: white;
-	padding: 12px 16px;
-	text-decoration: none;
+.lang-icon {
+	margin-right: 0;
+	width: 16px;
+	height: 16px;
+	fill: var(--theme-color, #00283a);
 	display: block;
-	transition: background-color 0.3s;
 }
 
-.lang-dropdown a:hover {
-	background-color: #555;
+.lang-caret-icon {
+	margin-left: 4px;
+	width: 14px;
+	height: 14px;
+	fill: var(--theme-color, #00283a);
+	display: block;
 }

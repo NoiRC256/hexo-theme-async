@@ -1,26 +1,24 @@
 <% if (get_langs().length > 1) { %>
-	<div class="lang-switcher">
-			<button class="lang-btn" onclick="toggleDropdown()"><%= page.lang %> <span class="caret">&#9660;</span></button>
-			<ul class="lang-dropdown">
-					<% for (let lang of get_langs()) { %>
-					<li><a href="<%= switch_lang(lang) %>"><%= lang %></a></li>
-					<% } %>
-			</ul>
-	</div>
-	<% } %>
-	
-	
-	<script>
-			function toggleDropdown() {
-					const dropdown = document.querySelector(".lang-dropdown");
-					if (dropdown.style.display === "block") {
-							dropdown.style.display = "none";
-							dropdown.style.opacity = "0";
-							dropdown.style.maxHeight = "0";
-					} else {
-							dropdown.style.display = "block";
-							dropdown.style.opacity = "1";
-							dropdown.style.maxHeight = "300px"; // adjust based on your expected max height
-					}
-			}
-	</script>
+<li class="menu-item-has-children">
+    <div class="lang-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" class="lang-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" data-v-a52b3249="">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d=" M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z " class="css-c4d79v"></path>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="lang-caret-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="text-icon" data-v-a52b3249="">
+            <path d="M12,16c-0.3,0-0.5-0.1-0.7-0.3l-6-6c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l5.3,5.3l5.3-5.3c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-6,6C12.5,15.9,12.3,16,12,16z"></path>
+        </svg>
+    </div>
+    <ul>
+        <% for (let lang of get_langs()) { %>
+        <li>
+            <% if (lang == page.lang) { %>
+            <a style="pointer-events: none; color: var(--primary);"><%= theme.languageNames[lang] || lang %></a>
+            <% } else { %>
+            <a href="<%= switch_lang(lang) %>"><%= theme.languageNames[lang] || lang %></a>
+            <% } %>
+        </li>
+        <% } %>
+    </ul>
+</li>
+<% } %>
